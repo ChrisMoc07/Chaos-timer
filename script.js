@@ -14,7 +14,7 @@ function startTimer() {
 
   // Validate input: Hours should be between 0 and 59, Minutes between 0 and 59, Seconds between 0 and 59
   if (minutes < 0 || minutes >= 60 || seconds < 0 || seconds >= 60 || hours < 0) {
-    alert('minutes (0-59), and seconds (0-59).');
+    alert('Please enter valid hours (0-59), minutes (0-59), and seconds (0-59).');
     return;
   }
 
@@ -64,9 +64,9 @@ function updateTimer() {
   }
 
   // Decrease the time randomly (faster or slower)
-  const randomFactor = Math.random() * 3;
-  const randomTimeChange = (randomFactor > 0.5 ? 1 : -1) * (Math.random() * 3); // Random +/- small variation
-  totalTimeInSeconds -= 10 + randomTimeChange;
+  const randomFactor = Math.random();
+  const randomTimeChange = (randomFactor > 0.5 ? 1 : -1) * (Math.random() * 2); // Random +/- small variation
+  totalTimeInSeconds -= 1 + randomTimeChange;
 
   // Ensure time doesn't go negative
   totalTimeInSeconds = Math.max(0, Math.round(totalTimeInSeconds));
