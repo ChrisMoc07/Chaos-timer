@@ -29,8 +29,8 @@ h1 {
 input {
   padding: 10px;
   font-size: 1rem;
-  width: 200px;
-  margin-right: 10px;
+  width: 70px;
+  margin: 5px;
   border: 1px solid #ccc;
   border-radius: 5px;
 }
