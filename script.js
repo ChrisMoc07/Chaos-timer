@@ -2,23 +2,18 @@ let timerInterval;
 let isRunning = false;
 let isPaused = false;
 let totalTimeInSeconds;
-let watchCheckInterval;
 
 document.getElementById('startButton').addEventListener('click', startTimer);
 document.getElementById('pauseButton').addEventListener('click', pauseTimer);
 
 function startTimer() {
-  clearInterval(timerInterval);
-  clearInterval(watchCheckInterval); // Clear any existing watch check
-  isRunning = false;
-  isPaused = false;
-
+  clearInterval(timerInterval); 
   const hours = parseInt(document.getElementById('hours').value) || 0;
   const minutes = parseInt(document.getElementById('minutes').value) || 0;
   const seconds = parseInt(document.getElementById('seconds').value) || 0;
 
   if (minutes < 0 || minutes >= 60 || seconds < 0 || seconds >= 60 || hours < 0) {
-    alert('Please enter valid minutes (0-59) and seconds (0-59).');
+    alert('Please enter valid hours (0-59), minutes (0-59), and seconds (0-59).');
     return;
   }
 
@@ -31,41 +26,46 @@ function startTimer() {
 
   updateTimerDisplay();
   isRunning = true;
+  isPaused = false;
 
-  document.getElementById('startButton').disabled = true;
+  document.getElementById('startButton').disabled = false;
   document.getElementById('pauseButton').disabled = false;
 
   timerInterval = setInterval(updateTimer, 1000);
-  
-  // Start "Are you still watching?" check every 30 seconds
-  watchCheckInterval = setInterval(askStillWatching, 30000);
 }
 
 function pauseTimer() {
-  if (!isRunning) return;
-
-  isPaused = !isPaused;
-  if (isPaused) {
-    clearInterval(timerInterval);
-    document.getElementById('pauseButton').textContent = "Unpause";
-  } else {
-    document.getElementById('pauseButton').textContent = "Pause";
-    timerInterval = setInterval(updateTimer, 1000);
+  if (isRunning) {
+    isPaused = !isPaused;
+    if (isPaused) {
+      clearInterval(timerInterval);
+      document.getElementById('pauseButton').textContent = "Unpause";
+    } else {
+      document.getElementById('pauseButton').textContent = "Pause";
+      timerInterval = setInterval(updateTimer, 1000);
+    }
   }
 }
+
+// if ((totalTimeInSeconds % 30) == 0) {
+//     alert('are you still there :)');
+//     pauseTimer();
+//     return;
+//   }
 
 function updateTimer() {
   if (totalTimeInSeconds <= 0) {
     clearInterval(timerInterval);
-    clearInterval(watchCheckInterval);
     document.getElementById('timerDisplay').textContent = '00:00';
+    playAlarm();
     alert('Time\'s up!');
     resetButtons();
     return;
   }
 
-  const randomTimeChange = Math.random() * 1.5; // Random decrease between 1 and 2.5
-  totalTimeInSeconds -= Math.ceil(1 + randomTimeChange);
+  const randomFactor = Math.random();
+  const randomTimeChange = (randomFactor > 0.5 ? 1 : -1) * (Math.random() * 1); // Random +/- small variation
+  totalTimeInSeconds -= 1 + randomTimeChange;
 
   totalTimeInSeconds = Math.max(0, Math.round(totalTimeInSeconds));
   updateTimerDisplay();
@@ -77,8 +77,8 @@ function updateTimerDisplay() {
   const seconds = totalTimeInSeconds % 60;
 
   const formattedTime = hours > 0
-    ? `${String(hours).padStart(2, '0')}:${String(minutes).padStart(2, '0')}:${String(seconds).padStart(2, '0')}`
-    : `${String(minutes).padStart(2, '0')}:${String(seconds).padStart(2, '0')}`;
+    ? `${hours < 10 ? '0' : ''}${hours}:${minutes < 10 ? '0' : ''}${minutes}:${seconds < 10 ? '0' : ''}${seconds}`
+    : `${minutes < 10 ? '0' : ''}${minutes}:${seconds < 10 ? '0' : ''}${seconds}`;
 
   document.getElementById('timerDisplay').textContent = formattedTime;
 }
@@ -86,18 +86,11 @@ function updateTimerDisplay() {
 function resetButtons() {
   isRunning = false;
   isPaused = false;
-  clearInterval(watchCheckInterval);
   document.getElementById('startButton').disabled = false;
   document.getElementById('pauseButton').disabled = true;
   document.getElementById('pauseButton').textContent = 'Pause';
 }
-
-// Function to check if the user is still watching
-function askStillWatching() {
-  if (isRunning && !isPaused) {
-    const userStillWatching = confirm("Press Ok to verify you are still there");
-    if (!userStillWatching) {
-      pauseTimer();
-    }
-  }
+function playAlarm() {
+  const alarmSound = document.getElementById('alarmSound');
+  alarmSound.play(); // Play the sound
 }
