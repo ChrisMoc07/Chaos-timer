@@ -32,7 +32,7 @@ function startTimer() {
   isPaused = false;
 
   // Disable the start button and enable the pause button
-  document.getElementById('startButton').disabled = true;
+  document.getElementById('startButton').disabled = false;
   document.getElementById('pauseButton').disabled = false;
 
   // Start the timer
