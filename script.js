@@ -54,11 +54,11 @@ function pauseTimer() {
   }
 }
 
-if ((totalTimeInSeconds % 30) == 0) {
-    alert('are you still there :)');
-    pauseTimer();
-    return;
-  }
+// if ((totalTimeInSeconds % 30) == 0) {
+//     alert('are you still there :)');
+//     pauseTimer();
+//     return;
+//   }
 
 function updateTimer() {
   if (totalTimeInSeconds <= 0) {
