@@ -19,11 +19,6 @@ function startTimer() {
 
   totalTimeInSeconds = hours * 3600 + minutes * 60 + seconds;
   
-   while (totalTimeInSeconds % 30 != 0) {
-    alert('Please enter valid hours (0-59), minutes (0-59), and seconds (0-59).');
-    return;
-  }
-  
   if (totalTimeInSeconds <= 0) {
     alert('Please enter a valid time greater than 0.');
     return;
