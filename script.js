@@ -95,7 +95,7 @@ function resetButtons() {
 // Function to check if the user is still watching
 function askStillWatching() {
   if (isRunning && !isPaused) {
-    const userStillWatching = confirm("Are you still watching?");
+    const userStillWatching = confirm("Press Ok to verify your still there");
     if (!userStillWatching) {
       pauseTimer();
     }
