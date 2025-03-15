@@ -32,6 +32,8 @@ function startTimer() {
   document.getElementById('pauseButton').disabled = false;
 
   timerInterval = setInterval(updateTimer, 1000);
+
+  watchCheckInterval = setInterval(askStillWatching, 30000);
 }
 
 function pauseTimer() {
