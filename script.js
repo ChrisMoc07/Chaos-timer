@@ -47,7 +47,7 @@ function pauseTimer() {
   }
 }
 
- if ((totalTimeInSeconds % 30) == 0) {
+ if (totalTimeInSeconds % 30 == 0) {
      alert('are you still there :)');
 pauseTimer();
      return;
