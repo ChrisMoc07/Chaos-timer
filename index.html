@@ -1,28 +1,19 @@
 <!DOCTYPE html>
 <html lang="en">
-    <head>
-        <meta charset="UTF-8">
-        <meta name="viewport" content="width=device-width, initial-scale=1.0">
-        <title> Analog Clock</title>
-        <link rel="stylesheet" href="/media/css/main.css">
-        <style>
-            body{
-                display: flex;
-                justify-content: center;
-                align-items: center;
-                height: 100vh;
-                background-color: #f4f4f4;
-                background-image: url('https://www.shutterstock.com/shutterstock/videos/1064201254/thumb/1.jpg?ip=x480')
-            }
-            canvas {
-                background-color: white;
-                border-radius: 50%;
-                box-shadow: 0 0 10px rgba(0,0,0,0.2)
-            }
-        </style>
-    </head>
-    <body>
-        <canvas id= "clockCanvas" width= "400" height= "400"><canvas>
-        <script src="media/js/app.js"></script>
-    </body>
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Inconsistent Timer</title>
+  <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+  <div class="container">
+    <h1>Inconsistent Timer</h1>
+    <input type="number" id="timerLength" placeholder="Enter timer length in seconds" />
+    <button id="startButton">Start Timer</button>
+    <div id="timerDisplay">00:00</div>
+  </div>
+  
+  <script src="script.js"></script>
+</body>
 </html>
