@@ -79,8 +79,8 @@ body {
   align-items: center;
   height: 100vh;
   padding: 20px;
+  font-family: 'Jost', sans-serif;
 }
-        
 .container {
   text-align: center;
   background-color: white;
@@ -141,6 +141,7 @@ button:hover {
 #pauseButton:hover {
   background-color: #470469;
 }
+
 @media (max-width: 768px) {
   h1 {
     font-size: 2rem;
