@@ -7,6 +7,7 @@ document.getElementById('startButton').addEventListener('click', startTimer);
 document.getElementById('pauseButton').addEventListener('click', pauseTimer);
 
 function startTimer() {
+  clearInterval(timerInterval); 
   // Get the input values for hours, minutes, and seconds
   const hours = parseInt(document.getElementById('hours').value) || 0;
   const minutes = parseInt(document.getElementById('minutes').value) || 0;
