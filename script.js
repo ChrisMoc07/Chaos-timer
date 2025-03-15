@@ -58,6 +58,7 @@ function updateTimer() {
   if (totalTimeInSeconds <= 0) {
     clearInterval(timerInterval);
     document.getElementById('timerDisplay').textContent = '00:00';
+    playAlarm();
     alert('Time\'s up!');
     resetButtons();
     return;
@@ -92,4 +93,8 @@ function resetButtons() {
   document.getElementById('startButton').disabled = false;
   document.getElementById('pauseButton').disabled = true;
   document.getElementById('pauseButton').textContent = 'Pause';
+}
+function playAlarm() {
+  const alarmSound = document.getElementById('alarmSound');
+  alarmSound.play(); // Play the sound
 }
