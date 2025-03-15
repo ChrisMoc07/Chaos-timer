@@ -47,15 +47,10 @@ function pauseTimer() {
   }
 }
 
-// if ((totalTimeInSeconds % 30) == 0) {
-//     alert('are you still there :)');
-//     pauseTimer();
-//     return;
-//   }
-
 function updateTimer() {
   if (totalTimeInSeconds <= 0) {
     clearInterval(timerInterval);
+    clearInterval(watchCheckInterval);
     document.getElementById('timerDisplay').textContent = '00:00';
     playAlarm();
     alert('Time\'s up!');
@@ -86,6 +81,7 @@ function updateTimerDisplay() {
 function resetButtons() {
   isRunning = false;
   isPaused = false;
+  clearInterval(watchCheckInterval);
   document.getElementById('startButton').disabled = false;
   document.getElementById('pauseButton').disabled = true;
   document.getElementById('pauseButton').textContent = 'Pause';
@@ -93,4 +89,13 @@ function resetButtons() {
 function playAlarm() {
   const alarmSound = document.getElementById('alarmSound');
   alarmSound.play(); // Play the sound
+}
+
+function askStillWatching() {
+  if (isRunning && !isPaused) {
+    const userStillWatching = confirm("Press Ok to confirm you are still watching");
+    if (!userStillWatching) {
+      pauseTimer();
+    }
+  }
 }
