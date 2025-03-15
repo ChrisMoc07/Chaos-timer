@@ -1,67 +1,23 @@
 <!DOCTYPE html>
 <html lang="en">
-    <head>
-        <meta charset="UTF-8">
-        <meta name="viewport" content="width=device-width, initial-scale=1.0">
-        <title> Analog Clock</title>
-        <link rel="stylesheet" href="/media/css/main.css">
-        <style>
-            body{
-                display: flex;
-                justify-content: center;
-                align-items: center;
-                height: 100vh;
-                background-color: #f4f4f4;
-                background-image: url('https://www.shutterstock.com/shutterstock/videos/1064201254/thumb/1.jpg?ip=x480')
-            }
-
-            h1 {
-                color: white;
-                background-color: #660099;
-                position: absolute;
-                top: 0;
-                width: 100%;
-                height: 10%;
-            }
-
-            canvas {
-                background-color: white;
-                border-radius: 50%;
-                box-shadow: 0 0 10px rgba(0,0,0,0.2)
-            }
-
-            .clockRectangle {
-                width: 70%;
-                height: 30%;
-                background-color: rgba(0, 153, 154, 0.9);
-                left: 50%;
-                top: 30%;
-            }
-
-            .stopRectangle {
-                width: 30%;
-                height: 20%;
-                background-color: rgba(255, 204, 0, 0.9);
-                left: 20%;
-                top: 70%;
-            }
-
-            .editRectangle {
-                width: 30%;
-                height: 20%;
-                background-color: rgba(255, 104, 155, 0.9);
-                left: 60%;
-                top: 70%;
-            }
-
-        </style>
-    </head>
-    <body>
-        <h1>Timer Site</h1>
-        <!-- <canvas id= "clockCanvas" width= "400" height= "400"><canvas> -->
-        <script src="media/js/app.js"></script>
-        <div class="clockRectangle"></div>
-        <div class="stopRectangle"></div>
-        <div class="editRectangle"></div>
-    </body>
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Inconsistent Timer</title>
+  <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+  <div class="container">
+    <h1>the best timer</h1>
+    <div>
+      <input type="number" id="hours" placeholder="Hours" min="0" max="48" />
+      <input type="number" id="minutes" placeholder="Minutes" min="0" max="59" />
+      <input type="number" id="seconds" placeholder="Seconds" min="0" max="59" />
+    </div>
+    <button id="startButton">begin timer</button>
+    <button id="pauseButton" disabled>pause</button>
+    <div id="timerDisplay">00:00</div>
+  </div>
+  <script src="script.js"></script>
+</body>
 </html>
