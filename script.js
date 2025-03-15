@@ -14,7 +14,7 @@ function startTimer() {
 
   // Validate input: Hours should be between 0 and 59, Minutes between 0 and 59, Seconds between 0 and 59
   if (minutes < 0 || minutes >= 60 || seconds < 0 || seconds >= 60 || hours < 0) {
-    alert('Please enter valid hours (0-59), minutes (0-59), and seconds (0-59).');
+    alert('minutes (0-59), and seconds (0-59).');
     return;
   }
 
