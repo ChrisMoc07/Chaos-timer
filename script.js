@@ -2,6 +2,7 @@ let timerInterval;
 let isRunning = false;
 let isPaused = false;
 let totalTimeInSeconds;
+let watchCheckInterval; 
 
 document.getElementById('startButton').addEventListener('click', startTimer);
 document.getElementById('pauseButton').addEventListener('click', pauseTimer);
