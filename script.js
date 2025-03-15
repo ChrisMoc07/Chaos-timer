@@ -64,8 +64,8 @@ function updateTimer() {
   }
 
   // Decrease the time randomly (faster or slower)
-  const randomFactor = Math.random() * 10;
-  const randomTimeChange = (randomFactor > 0.5 ? 1 : -1) * (Math.random() * 10); // Random +/- small variation
+  const randomFactor = Math.random() * 3;
+  const randomTimeChange = (randomFactor > 0.5 ? 1 : -1) * (Math.random() * 3); // Random +/- small variation
   totalTimeInSeconds -= 10 + randomTimeChange;
 
   // Ensure time doesn't go negative
