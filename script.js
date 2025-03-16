@@ -45,6 +45,7 @@ function createPopupImage() {
     });
 
     popupContainer.appendChild(imageElement);
+    playBoom();
 }
 
 function generateRandomPopups() {
@@ -138,6 +139,10 @@ function resetButtons() {
 function playAlarm() {
   const alarmSound = document.getElementById('alarmSound');
   alarmSound.play(); 
+}
+function playBoom() {
+  const boomSound = document.getElementById('boomSound');
+  boomSound.play(); 
 }
 
 function askStillWatching() {
