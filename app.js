@@ -94,7 +94,7 @@ function pauseTimer() {
     isPaused = !isPaused;
     if (isPaused) {
       clearInterval(timerInterval);
-      document.getElementById('pauseButton').textContent = "UNPAUSE";
+      document.getElementById('pauseButton').textContent = "RESUME";
     } else {
       document.getElementById('pauseButton').textContent = "PAUSE";
       timerInterval = setInterval(updateTimer, 1000);
