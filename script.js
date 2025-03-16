@@ -8,15 +8,19 @@ document.getElementById('startButton').addEventListener('click', startTimer);
 document.getElementById('pauseButton').addEventListener('click', pauseTimer);
 
 const imageSources = [
-    '/media/icon.webp'
+    '/media/icon.webp',
+    '/media/popup1.webp',
+    '/media/popup2.webp',
+    '/media/popup3.webp',
+    '/media/popup4.webp'
 ];
 
 // Function to generate random positions within the screen
 function getRandomPosition() {
     const width = window.innerWidth;
     const height = window.innerHeight;
-    const randomX = Math.floor(Math.random() * (width - 100)); // 100 is the image width
-    const randomY = Math.floor(Math.random() * (height - 100)); // 100 is the image height
+    const randomX = Math.floor(Math.random() * (width - 200)); // 100 is the image width
+    const randomY = Math.floor(Math.random() * (height - 200)); // 100 is the image height
     return { x: randomX, y: randomY };
 }
 
