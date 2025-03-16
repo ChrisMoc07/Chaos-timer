@@ -44,7 +44,6 @@ function createPopupImage() {
     imageElement.classList.add('popup-image');
 
     imageElement.addEventListener('click', () => {
-        playBoom();
         popupContainer.removeChild(imageElement);
     });
 
