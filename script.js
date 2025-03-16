@@ -52,7 +52,7 @@ function createPopupImage() {
 }
 
 function generateRandomPopups() {
-    setInterval(createPopupImage, 4000); 
+    setInterval(createPopupImage, 6000); 
 }
 
 generateRandomPopups();
