@@ -54,7 +54,7 @@ function createPopupImage() {
 
 // Function to generate popups at random intervals
 function generateRandomPopups() {
-    setInterval(createPopupImage, 3000); // Create a new image every 1 second
+    setInterval(createPopupImage, 4000); // Create a new image every 1 second
 }
 
 // Start generating popups
