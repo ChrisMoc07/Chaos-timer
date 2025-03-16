@@ -12,15 +12,20 @@ const imageSources = [
     '/media/popup1.webp',
     '/media/popup2.webp',
     '/media/popup3.webp',
-    '/media/popup4.webp'
+    '/media/popup4.webp',
+    '/media/popup5.webp',
+    '/media/popup6.webp',
+    '/media/popup7.webp',
+    '/media/popup8.webp',
+    '/media/popup9.webp'
 ];
 
 // Function to generate random positions within the screen
 function getRandomPosition() {
     const width = window.innerWidth;
     const height = window.innerHeight;
-    const randomX = Math.floor(Math.random() * (width - 200)); // 100 is the image width
-    const randomY = Math.floor(Math.random() * (height - 200)); // 100 is the image height
+    const randomX = Math.floor(Math.random() * (width - 250)); // 100 is the image width
+    const randomY = Math.floor(Math.random() * (height - 250)); // 100 is the image height
     return { x: randomX, y: randomY };
 }
 
