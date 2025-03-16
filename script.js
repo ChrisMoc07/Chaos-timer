@@ -1,4 +1,5 @@
 let timerInterval;
+let popupInterval;
 let isRunning = false;
 let isPaused = false;
 let totalTimeInSeconds;
@@ -52,10 +53,10 @@ function createPopupImage() {
 }
 
 function generateRandomPopups() {
-    setInterval(createPopupImage, 6000); 
+    popupInterval = setInterval(createPopupImage, 6000); 
 }
 
-generateRandomPopups();
+
 
 function startTimer() {
   clearInterval(timerInterval); 
@@ -83,7 +84,8 @@ function startTimer() {
   document.getElementById('pauseButton').disabled = false;
 
   timerInterval = setInterval(updateTimer, 1000);
-
+    clearInterval(popupInterval);
+    generateRandomPopups();
   watchCheckInterval = setInterval(askStillWatching, 30000);
 }
 
