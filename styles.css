@@ -81,6 +81,7 @@ body {
   padding: 20px;
   font-family: 'Jost', sans-serif;
   color:white;
+  overflow:hidden;
 }
 .container {
   text-align: center;
