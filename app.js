@@ -94,9 +94,9 @@ function pauseTimer() {
     isPaused = !isPaused;
     if (isPaused) {
       clearInterval(timerInterval);
-      document.getElementById('pauseButton').textContent = "Unpause";
+      document.getElementById('pauseButton').textContent = "UNPAUSE";
     } else {
-      document.getElementById('pauseButton').textContent = "Pause";
+      document.getElementById('pauseButton').textContent = "PAUSE";
       timerInterval = setInterval(updateTimer, 1000);
     }
   }
