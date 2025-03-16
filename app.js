@@ -92,6 +92,7 @@ function startTimer() {
   timerInterval = setInterval(updateTimer, 1000);
     clearInterval(popupInterval);
     generateRandomPopups();
+    clearInterval(watchCheckInterval);
   watchCheckInterval = setInterval(askStillWatching, 30000);
 }
 
