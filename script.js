@@ -96,14 +96,16 @@ function playAlarm() {
 
 function askStillWatching() {
   if (isRunning && !isPaused) {
-    const userStillWatching = confirm("Are you still watching?");
-    if (userStillWatching) {
-      const reallySure = confirm("R u sure?");
+    const userStillWatching = confirm("Are you still watching? press OK to confirm");
+    if (!userStillWatching) {
+      pauseTimer();
+      return;
+    }
+    if (Math.random() < 0.5) {
+      const reallySure = confirm("R u sure? press OK to confirm");
       if (!reallySure) {
         pauseTimer();
       }
-    } else {
-      pauseTimer();
     }
   }
 }
