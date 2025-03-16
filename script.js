@@ -27,7 +27,10 @@ function getRandomPosition() {
     const randomY = Math.floor(Math.random() * (height - 250));
     return { x: randomX, y: randomY };
 }
-
+function playBoom() {
+  const boomSound = document.getElementById('boomSound');
+  boomSound.play(); 
+}
 function createPopupImage() {
     const popupContainer = document.getElementById('popup-container');
     const imageElement = document.createElement('div');
@@ -141,10 +144,7 @@ function playAlarm() {
   const alarmSound = document.getElementById('alarmSound');
   alarmSound.play(); 
 }
-function playBoom() {
-  const boomSound = document.getElementById('boomSound');
-  boomSound.play(); 
-}
+
 
 function askStillWatching() {
   if (isRunning && !isPaused) {
