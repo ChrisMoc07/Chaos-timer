@@ -7,6 +7,50 @@ let watchCheckInterval;
 document.getElementById('startButton').addEventListener('click', startTimer);
 document.getElementById('pauseButton').addEventListener('click', pauseTimer);
 
+const imageSources = [
+    '/media/icon.webp'
+];
+
+// Function to generate random positions within the screen
+function getRandomPosition() {
+    const width = window.innerWidth;
+    const height = window.innerHeight;
+    const randomX = Math.floor(Math.random() * (width - 100)); // 100 is the image width
+    const randomY = Math.floor(Math.random() * (height - 100)); // 100 is the image height
+    return { x: randomX, y: randomY };
+}
+
+// Function to create a new popup image
+function createPopupImage() {
+    const popupContainer = document.getElementById('popup-container');
+    const imageElement = document.createElement('div');
+    
+    // Set random position
+    const { x, y } = getRandomPosition();
+    imageElement.style.left = `${x}px`;
+    imageElement.style.top = `${y}px`;
+
+    // Set random image source
+    const randomImage = imageSources[Math.floor(Math.random() * imageSources.length)];
+    imageElement.style.backgroundImage = `url(${randomImage})`;
+    imageElement.classList.add('popup-image');
+
+    // Add a click event to delete the image when clicked
+    imageElement.addEventListener('click', () => {
+        popupContainer.removeChild(imageElement);
+    });
+
+    popupContainer.appendChild(imageElement);
+}
+
+// Function to generate popups at random intervals
+function generateRandomPopups() {
+    setInterval(createPopupImage, 1000); // Create a new image every 1 second
+}
+
+// Start generating popups
+generateRandomPopups();
+
 function startTimer() {
   clearInterval(timerInterval); 
   const hours = parseInt(document.getElementById('hours').value) || 0;
