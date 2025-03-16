@@ -49,7 +49,7 @@ function createPopupImage() {
     const randomImage = imageSources[Math.floor(Math.random() * imageSources.length)];
     imageElement.style.backgroundImage = `url(${randomImage})`;
     imageElement.classList.add('popup-image');
-
+    playBoom();
     imageElement.addEventListener('click', () => {
         popupContainer.removeChild(imageElement);
     });
