@@ -20,31 +20,26 @@ const imageSources = [
     '/media/popup9.webp'
 ];
 
-// Function to generate random positions within the screen
 function getRandomPosition() {
     const width = window.innerWidth;
     const height = window.innerHeight;
-    const randomX = Math.floor(Math.random() * (width - 250)); // 100 is the image width
-    const randomY = Math.floor(Math.random() * (height - 250)); // 100 is the image height
+    const randomX = Math.floor(Math.random() * (width - 250));
+    const randomY = Math.floor(Math.random() * (height - 250));
     return { x: randomX, y: randomY };
 }
 
-// Function to create a new popup image
 function createPopupImage() {
     const popupContainer = document.getElementById('popup-container');
     const imageElement = document.createElement('div');
     
-    // Set random position
     const { x, y } = getRandomPosition();
     imageElement.style.left = `${x}px`;
     imageElement.style.top = `${y}px`;
 
-    // Set random image source
     const randomImage = imageSources[Math.floor(Math.random() * imageSources.length)];
     imageElement.style.backgroundImage = `url(${randomImage})`;
     imageElement.classList.add('popup-image');
 
-    // Add a click event to delete the image when clicked
     imageElement.addEventListener('click', () => {
         popupContainer.removeChild(imageElement);
     });
@@ -52,12 +47,10 @@ function createPopupImage() {
     popupContainer.appendChild(imageElement);
 }
 
-// Function to generate popups at random intervals
 function generateRandomPopups() {
-    setInterval(createPopupImage, 4000); // Create a new image every 1 second
+    setInterval(createPopupImage, 4000); 
 }
 
-// Start generating popups
 generateRandomPopups();
 
 function startTimer() {
@@ -67,7 +60,7 @@ function startTimer() {
   const seconds = parseInt(document.getElementById('seconds').value) || 0;
 
   if (minutes < 0 || minutes >= 60 || seconds < 0 || seconds >= 60 || hours < 0) {
-    alert('Please enter valid hours (0-59), minutes (0-59), and seconds (0-59).');
+    alert('Please enter valid hours, minutes (0-59), and seconds (0-59).');
     return;
   }
 
@@ -115,7 +108,7 @@ function updateTimer() {
   }
 
   const randomFactor = Math.random();
-  const randomTimeChange = (randomFactor > 0.5 ? 1 : -1) * (Math.random() * 1); // Random +/- small variation
+  const randomTimeChange = (randomFactor > 0.5 ? 1 : -1) * (Math.random() * 1);
   totalTimeInSeconds -= 1 + randomTimeChange;
 
   totalTimeInSeconds = Math.max(0, Math.round(totalTimeInSeconds));
@@ -144,7 +137,7 @@ function resetButtons() {
 }
 function playAlarm() {
   const alarmSound = document.getElementById('alarmSound');
-  alarmSound.play(); // Play the sound
+  alarmSound.play(); 
 }
 
 function askStillWatching() {
