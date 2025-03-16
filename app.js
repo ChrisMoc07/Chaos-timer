@@ -18,7 +18,12 @@ const imageSources = [
     '/media/popup6.webp',
     '/media/popup7.webp',
     '/media/popup8.webp',
-    '/media/popup9.webp'
+    '/media/popup9.webp',
+    '/media/popup10.webp',
+    '/media/popup11.webp',
+    '/media/popup12.webp',
+    '/media/popup13.webp',
+    '/media/popup14.webp'
 ];
 
 function getRandomPosition() {
