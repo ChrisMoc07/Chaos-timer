@@ -98,6 +98,7 @@ function askStillWatching() {
   if (isRunning && !isPaused) {
     const userStillWatching = confirm("Press Ok to confirm you are still watching");
     if (!userStillWatching) {
+    const areYouSureUserStillWatching = confirm("Are you sure? Press OK to continue");
       pauseTimer();
     }
   }
