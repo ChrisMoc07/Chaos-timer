@@ -42,10 +42,11 @@ function createPopupImage() {
 
     imageElement.addEventListener('click', () => {
         popupContainer.removeChild(imageElement);
+        playBoom();
     });
 
     popupContainer.appendChild(imageElement);
-    playBoom();
+    
 }
 
 function generateRandomPopups() {
