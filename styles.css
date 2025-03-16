@@ -151,8 +151,8 @@ button:hover {
 
 .popup-image {
     position: absolute;
-    width: 100px;
-    height: 100px;
+    width: 200px;
+    height: 200px;
     cursor: pointer;
     border-radius: 10px;
     background-size: cover;
