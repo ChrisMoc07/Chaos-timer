@@ -59,7 +59,7 @@ function createPopupImage() {
 }
 
 function generateRandomPopups() {
-    popupInterval = setInterval(createPopupImage, 10000); 
+    popupInterval = setInterval(createPopupImage, 5000); 
 }
 
 
